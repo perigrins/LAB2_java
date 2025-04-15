@@ -41,38 +41,49 @@ public class RNASequence extends Sequence {
 
     // hash map: a pair of key + value
     // where key = rna codon and value = amino acid
+    // amino acids and its keys are from website:
+    // https://openstax.org/books/biology/pages/15-1-the-genetic-code
     // todo: write more amino acids
     private Map<String, Character> getCodonTable() {
-        Map<String, Character> table = new HashMap<>();
+        HashMap<String, Character> tab = new HashMap<>();
 
         // start codon
-        table.put("AUG", 'M');
+        // m as short from met
+        tab.put("AUG", 'M');
 
-        // phenylalanine
-        table.put("UUU", 'F');
+        // phenylalanine (phe)
+        tab.put("UUU", 'F');
+        tab.put("UUC", 'F');
 
-        // leucine
-        table.put("UUA", 'L'); table.put("UUG", 'L');
-        table.put("CUU", 'L'); table.put("CUC", 'L');
-        table.put("CUA", 'L'); table.put("CUG", 'L');
+        // leucine (leu)
+        tab.put("UUA", 'L');
+        tab.put("UUG", 'L');
+        tab.put("CUU", 'L');
+        tab.put("CUC", 'L');
+        tab.put("CUA", 'L');
+        tab.put("CUG", 'L');
 
-        // hiatidiner
-        table.put("CAU", 'H'); table.put("CAC", 'H');
+        // histidine (his)
+        tab.put("CAU", 'H');
+        tab.put("CAC", 'H');
 
-        // theronine
-        table.put("ACU", 'T'); table.put("ACC", 'T');
-        table.put("ACA", 'T'); table.put("ACG", 'T');
+        // theronine (thr)
+        tab.put("ACU", 'T');
+        tab.put("ACC", 'T');
+        tab.put("ACA", 'T');
+        tab.put("ACG", 'T');
 
-
-        // isoleucine
-        table.put("AUU", 'I'); table.put("AUC", 'I'); table.put("AUA", 'I');
+        // isoleucine (ile)
+        tab.put("AUU", 'I');
+        tab.put("AUC", 'I');
+        tab.put("AUA", 'I');
 
         // stop codons
-        table.put("UAA", '*');
-        table.put("UAG", '*');
-        table.put("UGA", '*');
+        tab.put("UAA", '*');
+        tab.put("UAG", '*');
+        tab.put("UGA", '*');
 
-        return table;
+        return tab;
     }
 
     @Override

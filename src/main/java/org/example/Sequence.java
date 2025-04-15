@@ -1,6 +1,7 @@
 package org.example;
 
-
+// abstract classes created with usage of official tutorial:
+// https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
 
 public abstract class Sequence {
     // identifier and data are present in all classes
@@ -17,7 +18,7 @@ public abstract class Sequence {
         // each class has its own valid characters
         // dna - a, c, t, g
         // rna - a, u, c, g
-        // proteins - all letters except b, j, o, x, z
+        // proteins - all letters except a few (b, j, o, z)
         if (!validate()) {
             throw new IllegalArgumentException("invalid characters in sequence");
         }
@@ -28,6 +29,7 @@ public abstract class Sequence {
     // 2. mutate(pos, val) - changes location of a given character
     // 3. findMotif() - returns location of a certain motif
     // 4. getLength() - return length of an object
+    // 5. getData(), getIdentifier()
 
     public String getIdentifier() {
         return identifier;
@@ -74,7 +76,8 @@ public abstract class Sequence {
         return true;
     }
 
-    // abstract set of valid characters
+    // abstract set of valid characters, returrns a set of characters
+    // specific for every class
     protected abstract java.util.Set<Character> getValidCharacters();
 }
 

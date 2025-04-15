@@ -18,7 +18,7 @@ public class DNASequence extends Sequence {
             switch (base) {
                 case 'A': comp += 'T'; break;
                 case 'T': comp += 'A'; break;
-                case 'C': comp +='G'; break;
+                case 'C': comp += 'G'; break;
                 case 'G': comp += 'C'; break;
             }
         }
