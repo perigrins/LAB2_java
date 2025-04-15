@@ -1,4 +1,4 @@
-# Projekt utworzony na potrzeby kursu **Języki programowania do zastosowań biomedycznych**
+# Projekt utworzony na potrzeby kursu *Języki programowania do zastosowań biomedycznych*
 
 ## Zadanie 1
 
