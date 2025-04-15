@@ -18,13 +18,13 @@ class PolTest {
         ArrayList<Integer> coeff2 = new ArrayList<>(List.of(-1));               // -1
         ArrayList<Integer> coeff3 = new ArrayList<>();                              // blank
 
-        Polynomial polynomial = new Polynomial(coeff);
-        Polynomial polynomial2 = new Polynomial(coeff2);
-        Polynomial polynomial3 = new Polynomial(coeff3);
+        Pol polynomial = new Pol(coeff);
+        Pol polynomial2 = new Pol(coeff2);
+        Pol polynomial3 = new Pol(coeff3);
 
-        int deg = Polynomial.polynomialDegree(polynomial);
-        int deg2 = Polynomial.polynomialDegree(polynomial2);
-        int deg3 = Polynomial.polynomialDegree(polynomial3);
+        int deg = Pol.polynomialDegree(polynomial);
+        int deg2 = Pol.polynomialDegree(polynomial2);
+        int deg3 = Pol.polynomialDegree(polynomial3);
 
         assertAll(() -> Assertions.assertEquals(4, deg),
                 () -> Assertions.assertEquals(0, deg2),
@@ -35,10 +35,10 @@ class PolTest {
     @DisplayName("Value of a polynomial")
     void testPolynomialValue() {
         ArrayList<Integer> coeff = new ArrayList<>(Arrays.asList(-3, 2, 0, 2, 1));  // 1x^4 + 2x^3 + 2x - 3
-        Polynomial polynomial = new Polynomial(coeff);
-        assertAll(() -> Assertions.assertEquals(2, Polynomial.polynomialValue(polynomial, 1)),
-                () -> Assertions.assertEquals(1, Polynomial.polynomialValue(polynomial, 0)),
-                () -> Assertions.assertEquals(0, Polynomial.polynomialValue(polynomial, -1)));
+        Pol polynomial = new Pol(coeff);
+        assertAll(() -> Assertions.assertEquals(2, Pol.polynomialValue(polynomial, 1)),
+                () -> Assertions.assertEquals(1, Pol.polynomialValue(polynomial, 0)),
+                () -> Assertions.assertEquals(0, Pol.polynomialValue(polynomial, -1)));
     }
 
     @org.junit.jupiter.api.Test
