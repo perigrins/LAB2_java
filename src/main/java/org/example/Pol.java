@@ -127,19 +127,25 @@ public class Pol {
         }
 
         // deleting additional zeros
-        while (result.size() > 1 && result.get(result.size() - 1) == 0) {
+        /*while (result.size() > 1 && result.get(result.size() - 1) == 0) {
             result.remove(result.size() - 1);
-        }
+        }*/
 
         return new Pol(result);
     }
 
-    public static void main(String[] args) {
-        /*rrayList<Integer> coeff = new ArrayList<>(Arrays.asList(64, 0, -3, -16, 0, 0, 1));
-        ArrayList<Integer> coeff2 = new ArrayList<>(Arrays.asList(3, 4, -3, 12, -8, 0, -4));
-        Pol polynomial = new Pol(coeff);
-        Pol polynomial2 = new Pol(coeff2);*/
+    // written to correctly compare two results (in the tests)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
 
+        Pol other = (Pol) obj;
+        return this.getCoefficients().equals(other.getCoefficients());
+    }
+
+
+    public static void main(String[] args) {
         ArrayList<Integer> c = new ArrayList<>(Arrays.asList(3, 2, 1));         // 1x^2 + 2x + 3
         ArrayList<Integer> c2 = new ArrayList<>(Arrays.asList(-1, 2, 4, 8));    // 8x^3 + 4x^2 + 2x - 1
 
@@ -168,7 +174,5 @@ public class Pol {
         System.out.println("W1 after += W2: ");
         p.add(p2);
         printPol(p);
-        //System.out.println("W1 -= W2: ");
-        //p.subtract(p2);
     }
 }
