@@ -123,6 +123,7 @@ public class Pol {
                 // multiplying
                 for (int i = 0; i < deg1; i++) {
                     for (int j = 0; j < deg2; j++) {
+                        // adding coeff1.get(i) * coeff2.get(j) to result on position i+j
                         int value = result.get(i + j) + coeff1.get(i) * coeff2.get(j);
                         result.set(i + j, value);
                     }
