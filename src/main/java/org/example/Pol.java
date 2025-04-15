@@ -137,8 +137,12 @@ public class Pol {
     // written to correctly compare two results (in the tests)
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
 
         Pol other = (Pol) obj;
         return this.getCoefficients().equals(other.getCoefficients());
