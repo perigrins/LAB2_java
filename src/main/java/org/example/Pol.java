@@ -11,7 +11,6 @@ public class Pol {
     // class constructor
     public Pol(ArrayList<Integer> coefficients) {
         this.Coefficient = coefficients;
-        //this.Coefficient = new ArrayList<>(Coefficient);
     }
 
     public ArrayList<Integer> getCoefficients() {
@@ -37,7 +36,7 @@ public class Pol {
     static int polynomialDegree(Pol pol) {
         ArrayList<Integer> coeff = pol.getCoefficients();
 
-        // returning degree or -1 if the polynomial is incorrect
+        // returning degree or -1 if the polynomial is incorrect (blank)
         for (int i = coeff.size() - 1; i >= 0; i--) {
             if (coeff.get(i) != 0) {
                 return i;
@@ -56,7 +55,8 @@ public class Pol {
                     continue;
                 }
                 if (i != pol.size() - 1) {
-                    System.out.print(pol.get(i) > 0 ? " + " : " ");  // adding "+" for positive coefficients
+                    // adding + for positive coeffs
+                    System.out.print(pol.get(i) > 0 ? " + " : " ");
                 }
 
                 System.out.print(pol.get(i));
@@ -88,6 +88,8 @@ public class Pol {
 
         int deg1 = coeff1.size();
         int deg2 = coeff2.size();
+        // using Math.max to determine result's degree
+        // based on website: https://www.w3schools.com/java/ref_math_max.asp
         int max = Math.max(deg1, deg2);
 
         ArrayList<Integer> result = new ArrayList<>();
@@ -110,9 +112,15 @@ public class Pol {
                 break;
 
             case '*':
+                // degree of the result = deg 1 + deg 2 - 2
+                // so number of coefficients is deg 1 + deg 2 - 1
                 int degResult = deg1 + deg2 - 1;
-                for (int i = 0; i < degResult; i++) result.add(0);
+                // creating list filled with zeros - the list already has its correct size
+                for (int i = 0; i < degResult; i++) {
+                    result.add(0);
+                }
 
+                // multiplying
                 for (int i = 0; i < deg1; i++) {
                     for (int j = 0; j < deg2; j++) {
                         int value = result.get(i + j) + coeff1.get(i) * coeff2.get(j);
@@ -126,15 +134,13 @@ public class Pol {
                 return null;
         }
 
-        // deleting additional zeros
-        /*while (result.size() > 1 && result.get(result.size() - 1) == 0) {
-            result.remove(result.size() - 1);
-        }*/
-
         return new Pol(result);
     }
 
     // written to correctly compare two results (in the tests)
+    // usage of the override based on article: https://www.geeksforgeeks.org/overriding-equals-method-in-java/
+    // and on Kim's answer on a question:
+    // https://stackoverflow.com/questions/8180430/how-to-override-equals-method-in-java
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
